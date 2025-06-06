@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+# Get list of windows with their titles and addresses
+get_windows() {
+  hyprctl clients -j | jq -r '.[] | "\(.title) | \(.address)"'
+}
+
+# Main function
+main() {
+  # Check if hyprctl is available
+  if ! command -v hyprctl &>/dev/null; then
+    echo "Error: hyprctl not found. Make sure you're running Hyprland."
+    exit 1
+  fi
+
+  # Check if wofi is available
+  if ! command -v wofi &>/dev/null; then
+    echo "Error: wofi not found. Please install wofi."
+    exit 1
+  fi
+
+  # Check if jq is available
+  if ! command -v jq &>/dev/null; then
+    echo "Error: jq not found. Please install jq."
+    exit 1
+  fi
+
+  # Get windows and show in wofi
+  selected=$(get_windows | wofi --dmenu --prompt "Focus Window:" --height 400 --width 500)
+
+  # Exit if nothing selected
+  if [ -z "$selected" ]; then
+    exit 0
+  fi
+
+  # Extract address from selection (everything after the last " | ")
+  address=$(echo "$selected" | sed 's/.* | //')
+
+  # Focus the window
+  hyprctl dispatch focuswindow "address:$address"
+}
+
+# Run main function
+main "$@"

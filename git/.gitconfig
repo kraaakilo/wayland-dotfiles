@@ -1,0 +1,12 @@
+[core]
+	excludesFile = ~/.gitignore
+	autocrlf = input
+[user]
+	name = Marc-Elvis
+	email = kraaakilo@gmail.com
+[fetch]
+	prune = true
+[init]
+	defaultBranch = master
+[http]
+	sslVerify = false

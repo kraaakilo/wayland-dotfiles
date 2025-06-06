@@ -1,0 +1,102 @@
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "Roboto","RobotoMono Nerd Font";
+  font-weight: 500;
+  font-size: 14px;
+  min-height: 0;
+}
+
+window#waybar {
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+}
+
+
+#workspaces button {
+  padding: 0 1px;
+  background: transparent;
+  color: white;
+  border-top: 2px solid transparent;
+}
+
+#workspaces button.hover {
+  box-shadow: inherit;
+}
+
+#workspaces button.active {
+  border-bottom: 1px solid white;
+}
+
+#workspaces button {
+  /* padding-bottom: 1px; */
+}
+
+#workspaces button.urgent {
+  background: #ffb3ba;
+  color: white;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: steps(12);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#mode {
+  background: #64727D;
+  border-bottom: 3px solid white;
+}
+
+#clock, #battery, #cpu, #memory, #network, #pulseaudio, #custom-spotify, #tray, #mode {
+  padding: 0 3px;
+  margin: 0 5px;
+}
+
+#clock {
+  font-weight: bold;
+}
+
+#battery {
+}
+
+#battery icon {
+  color: red;
+}
+
+#battery.charging {
+}
+
+@keyframes blink {
+  to {
+    background-color: #ffffff;
+    color: black;
+  }
+}
+
+#battery.warning:not(.charging) {
+  color: white;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#network.disconnected {
+  background: #f53c3c;
+}
+
+#pulseaudio {
+}
+
+#pulseaudio.muted {
+  color: red;
+}
+
+#custom-spotify {
+  color: rgb(30, 215, 96);
+  font-style: italic;
+}
+
+#tray {
+}
