@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+
+# Options for rofi
+ROFI_OPTIONS=(-theme ~/.config/rofi/powermenu.rasi)
+
+usage="$(basename "$0") [-h] -- display a menu for shutdown, reboot, lock etc.
+where:
+    -h  show this help text
+
+This script depends on rofi"
+
+# Parse CLI arguments
+while getopts "h" option; do
+  case "${option}" in
+    h) echo "${usage}"
+       exit 0
+       ;;
+    *) exit 1
+       ;;
+  esac
+done
+
+# Check whether a command exists
+function command_exists() {
+  command -v "$1" &> /dev/null 2>&1
+}
+
+# systemctl required
+if ! command_exists systemctl ; then
+  echo "Error: systemctl not found"
+  exit 1
+fi
+
+# rofi required
+if ! command_exists rofi ; then
+  echo "Error: rofi not found"
+  exit 1
+fi
+
+# menu defined as an associative array
+typeset -A menu
+
+# Menu with keys/commands
+menu=(
+  [󰤆  Shutdown]="systemctl poweroff"
+  [  Reboot]="systemctl reboot"
+  [  Hibernate]="systemctl hibernate"
+  [  Lock Screen]="swaylock"
+  [󰍃  Logout]="hyprctl dispatch exit"
+  [  Cancel]=""
+)
+
+menu_nrows=${#menu[@]}
+
+# Show menu and get selection
+selection="$(printf '%s\n' "${!menu[@]}" | sort | rofi -dmenu -i -lines "${menu_nrows}" -p "Power Menu:" "${ROFI_OPTIONS[@]}")"
+
+if [[ $? -eq 0 && ! -z ${selection} ]]; then
+  eval "${menu[${selection}]}"
+fi
