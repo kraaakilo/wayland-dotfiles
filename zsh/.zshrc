@@ -1,4 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
+export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#757575'
 
@@ -39,4 +40,3 @@ z() {
       --bind 'enter:become:echo {2..}'
     ) && cd "$dir"
   }
-
