@@ -1,20 +1,18 @@
 * {
   border: none;
   border-radius: 0;
-  font-family: "Roboto","RobotoMono Nerd Font";
+  font-family: "Roboto", "RobotoMono Nerd Font";
   font-weight: 500;
-  font-size: 14px;
-  min-height: 0;
+  font-size: 15px;
 }
 
 window#waybar {
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   color: white;
 }
 
-
 #workspaces button {
-  padding: 0 1px;
+  padding: 0 0.5px;
   background: transparent;
   color: white;
   border-top: 2px solid transparent;
@@ -25,7 +23,7 @@ window#waybar {
 }
 
 #workspaces button.active {
-  border-bottom: 1px solid white;
+  border-bottom: 3px solid white;
 }
 
 #workspaces button {
@@ -47,24 +45,29 @@ window#waybar {
   border-bottom: 3px solid white;
 }
 
-#clock, #battery, #cpu, #memory, #network, #pulseaudio, #custom-spotify, #tray, #mode {
-  padding: 0 3px;
-  margin: 0 5px;
+#clock,
+#battery,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#custom-spotify,
+#tray,
+#mode {
+  margin: 0 6px;
 }
 
 #clock {
   font-weight: bold;
 }
 
-#battery {
-}
+#battery {}
 
 #battery icon {
   color: red;
 }
 
-#battery.charging {
-}
+#battery.charging {}
 
 @keyframes blink {
   to {
@@ -86,8 +89,7 @@ window#waybar {
   background: #f53c3c;
 }
 
-#pulseaudio {
-}
+#pulseaudio {}
 
 #pulseaudio.muted {
   color: red;
@@ -98,5 +100,4 @@ window#waybar {
   font-style: italic;
 }
 
-#tray {
-}
+#tray {}
