@@ -65,10 +65,13 @@ nwg-look
 obs-studio
 obsidian
 pavucontrol
+php
+php-sqlite
 pipewire
 pipewire-alsa
 pipewire-jack
 pipewire-pulse
+pnpm
 polkit-gnome
 polkit-kde-agent
 postgresql
