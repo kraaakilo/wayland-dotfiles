@@ -45,6 +45,8 @@ kitty
 kvantum
 kvantum-qt5
 lazygit
+lib32-gcc-libs
+lib32-glibc
 libpulse
 libva-intel-driver
 libva-utils
