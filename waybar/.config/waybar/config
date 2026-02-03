@@ -61,7 +61,7 @@
     "format": "  {}",
     "max-length": 40,
     "interval": 5,
-    "exec": "$HOME/.config/waybar/mediaplayer.sh 2> /dev/null",
+    "exec": "$HOME/.config/waybar/mediaplayer 2> /dev/null",
     "exec-if": "pgrep spotify"
   }
 }

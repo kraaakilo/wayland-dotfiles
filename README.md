@@ -1,3 +1,5 @@
 # Dotfiles
 
-trying to migrate from x11 to wayland. config files are right here
+Wayland focused configuration files. 
+
+[full dotfiles](https://github.com/kraaakilo/.dotfiles)
