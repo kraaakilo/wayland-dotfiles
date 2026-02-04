@@ -1,9 +1,9 @@
 * {
   border: none;
   border-radius: 0;
-  font-family: "Roboto", "RobotoMono Nerd Font";
-  font-weight: 500;
-  font-size: 15px;
+  font-family: "Roboto";
+  /* font-weight: 500; */
+  font-size: 16px;
 }
 
 window#waybar {
